@@ -1,13 +1,14 @@
 <?php
 
 function cimbura_mu_tgmpa_plugins_local( $tgmpa_plugins ) {
-	$tgmpa_plugins[] = 
+	$local_plugins = array(
 		array(
 			'name'      => 'Check Email',
 			'slug'      => 'check-email',
 			'force_deactivation'  => true,
-		);
-	return $tgmpa_plugins;
+		),
+	);
+	return array_merge( $tgmpa_plugins, $local_plugins );
 }
 add_filter( 'cimbura_mu_tgmpa_plugins', 'cimbura_mu_tgmpa_plugins_local' );
 
