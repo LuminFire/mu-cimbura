@@ -4,7 +4,7 @@ This Must-Use Plugin can facilitate automatic plugin installation/activation/dea
 
 ### Installation ###
 
-* Create ```WPMU_PLUGIN_DIR``` if not created already, typically as wp-content/mu-plugins
+* Create ```WPMU_PLUGIN_DIR``` if not created already, typically as ```wp-content/mu-plugins```
 * Clone this project into that directory: ```git clone git@bitbucket.org:cimburacom/mu-cimbura.git```
 * Update submodules (TGM-Plugin-Activation) by running ```git submodule update --init --recursive``` in the ```WPMU_PLUGIN_DIR/mu-cimbura``` directory.
 * Copy ```10-mu-cimbura.php``` from plugin directory into ```WPMU_PLUGIN_DIR```
