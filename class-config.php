@@ -56,7 +56,7 @@ class Cimbura_MU_Config {
 				'name' => 'WordFence',
 				'slug' => 'wordfence',
 				'required' => true,
-			)
+			),
 		);
 
 		// Plugin options.
