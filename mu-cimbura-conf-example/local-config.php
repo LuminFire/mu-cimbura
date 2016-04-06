@@ -26,4 +26,7 @@ add_filter( 'cimbura_mu_tgmpa_config', 'cimbura_mu_tgmpa_config_local' );
 */
 
 // Other things you can do:
-// * override a function from pluggable.php
+// - override a function from pluggable.php
+// 
+// - set a define
+// define( 'JETPACK_DEV_DEBUG', true);
