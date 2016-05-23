@@ -13,9 +13,9 @@ $environments = array(
 function cimbura_mu_tgmpa_plugins_base( $tgmpa_plugins ) {
 	$base_plugins = array(
 		array(
-			'name'      => 'BuddyPress',
-			'slug'      => 'buddypress',
-			'required'  => true,
+			'name'      => 'Simply Show Hooks',
+			'slug'      => 'simply-show-hooks',
+			'required'  => false,
 		),
 	);
 	return array_merge( $tgmpa_plugins, $base_plugins );
