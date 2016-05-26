@@ -92,6 +92,7 @@ class Cimbura_MU_Config {
 	private function load_plugin_requirements() {
 		require_once CIMBURA_MU_DIR . 'TGM-Plugin-Activation/class-tgm-plugin-activation.php';
 		add_action( 'tgmpa_register', array( $this, 'register_required_plugins' ) );
+		add_action( 'init', array( $this, 'sane_plugin_defaults' ) );
 	}
 
 	public function register_required_plugins() {
@@ -99,6 +100,21 @@ class Cimbura_MU_Config {
 		tgmpa( $this->tgmpa_plugins, $this->tgmpa_config );
 		// Run deactivation on admin init (not just on theme activation).
 		add_action( 'admin_init', array( $tgmpa, 'force_deactivation' ) );
+	}
+
+	public function sane_plugin_defaults() {
+		/**
+		 * Persistently disable log_emails_log records from sucuri alerts because...
+		 * User logs in, sucuri tries to send email, email gets logged as a post type,
+		 * sucuri tries to send an email about a post update, email gets logged...
+		 * ad nauseum until <out of memory> :(
+		 */
+		if ( class_exists( 'SucuriScanOption' ) ) {
+			$post_types = get_post_types();
+			if ( array_key_exists( 'log_emails_log', $post_types ) ) {
+				SucuriScanOption::add_ignored_event( 'log_emails_log' );
+			}
+		}
 	}
 }
 
