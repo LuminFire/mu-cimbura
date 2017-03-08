@@ -31,7 +31,7 @@ class Cimbura_MU_Config {
 			require_once CIMBURA_CONF_DIR . 'base-config.php';
 
 			foreach ( $environments as $env => $url ) {
-				if ( $url && $url == site_url() ) {
+				if ( $url && $url == site_url() || ( is_multisite() && strpos( site_url(), $url ) !== false ) ) {
 					$this->environment = $env;
 					//first to match wins
 					return;
