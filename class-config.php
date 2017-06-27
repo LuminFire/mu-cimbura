@@ -112,7 +112,9 @@ class Cimbura_MU_Config {
 		if ( class_exists( 'SucuriScanOption' ) ) {
 			$post_types = get_post_types();
 			if ( array_key_exists( 'log_emails_log', $post_types ) ) {
-				SucuriScanOption::add_ignored_event( 'log_emails_log' );
+				if( method_exists( SucuriScanOption, 'add_ignored_event' ) ){
+					SucuriScanOption::add_ignored_event( 'log_emails_log' );
+				}
 			}
 		}
 	}
